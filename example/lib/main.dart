@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String address;
+  String? address;
 
   @override
   void initState() {
@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
     // Getting address (nano_, ban_) from this pubkey
     address = NanoAccounts.createAccount(NanoAccountType.NANO, pubKey);
     // Validating address
-    NanoAccounts.isValid(NanoAccountType.NANO, address);
+    NanoAccounts.isValid(NanoAccountType.NANO, address!);
 
     // Creating a block
     int accountType = NanoAccountType.NANO;
@@ -62,7 +62,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Flutter nano FFI'),
         ),
         body: Center(
-          child: Text(address),
+          child: Text(address!),
         ),
       ),
     );
